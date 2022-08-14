@@ -1,0 +1,20 @@
+.row{
+    padding: 20px;
+}
+
+div{
+    background-color:  rgb(66, 172, 243);  
+    color: white;
+}
+.proyecto{
+    width: auto;
+}
+
+.proy, .img-proy{
+    display: inline-block;
+    text-align: justify;
+}
+
+.img-proy{
+    box-shadow: 3px 3px 1px #000000;
+}
