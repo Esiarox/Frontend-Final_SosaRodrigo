@@ -1,18 +1,18 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+---- Include the above in your HEAD tag ---------->
 
 <div class="container login-container">
             <div class="row">
                 <div class="col-md-12 login-form-2">
                     <h3>Login</h3>
-                    <form>
+                    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Su Email *" value="" />
+                            <input type="text" class="form-control" placeholder="Usuario *" value="" name="nombreUsuario" [(ngModel)]="nombreUsuario" required/>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Su Password *" value="" />
+                            <input type="password" class="form-control" placeholder="Password *" value=""  name="password" [(ngModel)]="password" required/>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btnSubmit" value="Login" />

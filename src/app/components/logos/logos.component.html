@@ -8,7 +8,8 @@
             <a href=""><img src="../../../assets/IconI.png" class="redes"></a>
             <a href=""><img src="../../../assets/IconY.png" class="redes"></a>
             <a href=""><img src="../../../assets/IconT.png" class="redes"></a>
-            <button type="button" class="btn btn-outline-light login" (click)="login()">LOGIN</button>
+            <button type="button" class="btn btn-outline-light login" (click)="login()" *ngIf="!isLogged">LOGIN</button>
+            <button type="button" class="btn btn-outline-light login" (click)="logout()" *ngIf="isLogged">LOGOUT</button>
         </div>
     </div>
 </div>
