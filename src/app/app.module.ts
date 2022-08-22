@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './services/interceptor.service';
+import { NuevaExpComponent } from './components/experiencia/nueva-exp.component';
+import { EditarExpComponent } from './components/experiencia/editar-exp.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { interceptorProvider } from './services/interceptor.service';
     SkillComponent,
     ProyectoComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NuevaExpComponent,
+    EditarExpComponent,
   ],
   imports: [
     BrowserModule,
