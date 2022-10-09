@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './services/interceptor.service';
 import { NuevaExpComponent } from './components/experiencia/nueva-exp.component';
 import { EditarExpComponent } from './components/experiencia/editar-exp.component';
+import { ModalModule } from './components/_modal';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EditarExpComponent } from './components/experiencia/editar-exp.componen
     FormsModule,
     AppRoutingModule,
     NgCircleProgressModule.forRoot({}),
-    HttpClientModule
+    HttpClientModule,
+    ModalModule
   ],
   providers: [
     interceptorProvider

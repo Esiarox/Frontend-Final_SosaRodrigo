@@ -1,28 +1,43 @@
 <div class="row">
-    <h1>Experiencia Laboral</h1>
-    <div class="col-lg-2">
-        <button type="button" class="btn btn-info" routerLink="/Exp-nueva" *ngIf="isLogged">
-            AGREGAR NUEVA
+    <div>
+        <h1>Experiencia Laboral</h1><button type="button" title="Agregar nueva" class="btn btn-success" (click)="openCreateModal('crear-exp')"
+             *ngIf="isLogged">
+            <i class="bi bi-plus-circle"></i>
         </button>
     </div>
     <div class="col-xs-11 col-lg-11">
-        <table class="table">
-            <tbody>
-                <tr *ngFor="let exp of experiencia">
-                    <td>{{exp.nombreExp}} (Años)</td>
-                    <td>{{exp.descripcion}}</td>
-                    <td *ngIf="isLogged" class="col-md-1">
-                        <button type="button" class="btn btn-warning" routerLink="editar-Exp/{{exp.id}}">
-                            <i class="bi bi-pencil-square"></i>
-                        </button>
-                    </td>
-                    <td *ngIf="isLogged" class="col-md-1">
-                        <button type="button" class="btn btn-danger" (click)="borrar(exp.id)">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <ul *ngFor="let exp of experiencias">
+            <li>
+                <h1>{{exp.nombreExp}}</h1> - <h3>(Años)</h3>
+                <button *ngIf="isLogged" type="button" title="Editar" class="btn btn-warning"
+                    (click)="openUpdateModal('editar-exp',exp)"><i class=" bi bi-pencil-square"></i></button>
+                <button *ngIf="isLogged" type="button" title="Eliminar" class="btn btn-danger"
+                    (click)="borrar(exp.id)"><i class="bi bi-trash"></i></button>
+                <p>{{exp.descripcion}}</p>
+            </li>
+        </ul>
+
+        <jw-modal id="crear-exp">
+            <h1>Experiencia Laboral</h1>
+            <label>Lugar de trabajo</label>
+            <input type="text" class="form-control" id="nombreExp" name="nombreExp" [(ngModel)]="nombreExp" required>
+            <label>Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion"
+                required>
+            <button (click)="crear()">CREAR</button>
+            <button (click)="closeModal('crear-exp');">CANCELAR</button>
+        </jw-modal>
+
+        <jw-modal id="editar-exp">
+            <h1>Experiencia Laboral</h1>
+            <label>Lugar de trabajo</label>
+            <input type="text" class="form-control" id="nombreExp" name="nombreExp" [(ngModel)]="nombreExp" required>
+            <label>Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion"
+                required>
+            <button (click)="closeModal('editar-exp');">CANCELAR</button>
+            <button (click)="actualizar()">ACTUALIZAR</button>
+        </jw-modal>
+
     </div>
 </div>
