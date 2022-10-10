@@ -15,6 +15,7 @@ export class ExperienciaComponent implements OnInit {
   experiencia!: Experiencia;
   nombreExp: string = '';
   descripcion: string = '';
+  duracion: number = 0;
 
   constructor(private experienciaService: ExperienciaService, private tokenService: TokenService, private modalService: ModalService) { }
 
@@ -33,15 +34,15 @@ export class ExperienciaComponent implements OnInit {
   }
 
   crear(): void {
-    const expe = new Experiencia(this.nombreExp, this.descripcion);
+    const expe = new Experiencia(this.nombreExp, this.descripcion, this.duracion);
     this.experienciaService.crear(expe).subscribe(
       data => {
         //alert("Nueva Experiencia Laboral añadida");
+        this.cargarExperiencia();
       }, err => {
         alert("Error al agregar la nueva Experiencia Laboral");
       }
     )
-    this.cargarExperiencia();
     this.closeModal('crear-exp');
   }
 
@@ -60,8 +61,10 @@ export class ExperienciaComponent implements OnInit {
   actualizar(): void {
     this.experiencia.nombreExp = this.nombreExp;
     this.experiencia.descripcion = this.descripcion;
+    this.experiencia.duracion = this.duracion;
     this.experienciaService.editar(this.experiencia).subscribe(
       data => {
+        this.cargarExperiencia();
       }, err => {
         alert("Ha ocurrido un error al modificar la experiencia laboral");
       }
@@ -73,6 +76,7 @@ export class ExperienciaComponent implements OnInit {
   openUpdateModal(id: string, exp: Experiencia) {
     this.nombreExp = exp.nombreExp;
     this.descripcion = exp.descripcion;
+    this.duracion = exp.duracion;
     this.experiencia = exp;
     this.modalService.open(id);
   }
@@ -80,6 +84,7 @@ export class ExperienciaComponent implements OnInit {
   openCreateModal(id: string) {
     this.nombreExp = "";
     this.descripcion = "";
+    this.duracion = 0;
     this.modalService.open(id);
   }
 

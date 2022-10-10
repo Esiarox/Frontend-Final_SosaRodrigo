@@ -16,8 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { interceptorProvider } from './services/interceptor.service';
-import { NuevaExpComponent } from './components/experiencia/nueva-exp.component';
-import { EditarExpComponent } from './components/experiencia/editar-exp.component';
 import { ModalModule } from './components/_modal';
 
 @NgModule({
@@ -32,9 +30,7 @@ import { ModalModule } from './components/_modal';
     SkillComponent,
     ProyectoComponent,
     HomeComponent,
-    LoginComponent,
-    NuevaExpComponent,
-    EditarExpComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
