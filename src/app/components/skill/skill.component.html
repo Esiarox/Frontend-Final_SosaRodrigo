@@ -1,75 +1,61 @@
 <div class="row">
-    <h1>Hard & Soft Skills</h1>
-    <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-        <circle-progress
-            [percent]="85"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="300"
-        ></circle-progress>
+    <div>
+        <h1>Hard & Soft Skills</h1><button type="button" title="Agregar nueva" class="btn btn-success"
+            (click)="openCreateModal('crear-skill')" *ngIf="isLogged">
+            <i class="bi bi-plus-circle"></i>
+        </button>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-        <circle-progress
-            [percent]="85"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="300"
-        ></circle-progress>
+    <div *ngFor="let skill of skills" class="col-sm-4 col-md-4 col-lg-4 text-center">
+
+        <circle-progress [percent]="skill.nivel" [radius]="90" [outerStrokeWidth]="16" [innerStrokeWidth]="8"
+            [outerStrokeColor]="'#2207b8'" [innerStrokeColor]="'#8af0e3'" [unitsFontSize]="'15'"
+            [unitsFontWeight]="'900'" [titleFontSize]="'35'" [titleFontWeight]="'600'" [animation]="true"
+            [animationDuration]="300" [showSubtitle]="false"></circle-progress>
+        <h3>{{skill.titulo}}</h3>
+        <button *ngIf="isLogged" type="button" title="Editar" class="btn btn-warning"
+            (click)="openUpdateModal('editar-skill', skill)"><i class=" bi bi-pencil-square"></i></button>
+        <button *ngIf="isLogged" type="button" title="Eliminar" class="btn btn-danger" (click)="borrar(skill.id)"><i
+                class="bi bi-trash"></i></button>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-        <circle-progress
-            [percent]="85"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="300"
-        ></circle-progress>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-        <circle-progress
-            [percent]="85"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="300"
-        ></circle-progress>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-        <circle-progress
-            [percent]="85"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="300"
-        ></circle-progress>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 text-center">
-        <circle-progress
-            [percent]="85"
-            [radius]="100"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
-            [animation]="true"
-            [animationDuration]="300"
-        ></circle-progress>
-    </div>
+
+    <jw-modal id="crear-skill">
+        <div class="row">
+            <h1>Nueva Skill</h1>
+        </div>
+        <div class="row">
+            <h2>Título</h2>
+            <input class="form-control" type="text" id="tituloS" name="tituloS" [(ngModel)]="titulo" required>
+        </div>
+        <div class="row">
+            <h2>Nivel alcanzado (%)</h2>
+            <input type="number" class="form-control" id="nivelS" name="nivelS"
+                onkeypress='return event.charCode >= 48 && event.charCode <= 57' max="100" min="0" [(ngModel)]="nivel"
+                required>
+        </div>
+        <div class="row">
+            <button (click)="crear()" class="btn btn-primary btn-lg btn-block">CREAR</button>
+            <button (click)="closeModal('crear-skill');" class="btn btn-secondary btn-lg btn-block">CANCELAR</button>
+        </div>
+    </jw-modal>
+
+    <jw-modal id="editar-skill">
+        <div class="row">
+            <h1>Skill</h1>
+        </div>
+        <div class="row">
+            <h2>Título</h2>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="titulo" required>
+        </div>
+        <div class="row">
+            <h2>Nivel alcanzado (%)</h2>
+            <input type="number" class="form-control" id="nivel" name="nivel"
+                onkeypress='return event.charCode >= 48 && event.charCode <= 57' min="0" max="100" [(ngModel)]="nivel"
+                required>
+        </div>
+        <div class="row">
+            <button (click)="actualizar()" class="btn btn-primary btn-lg btn-block">ACTUALIZAR</button>
+            <button (click)="closeModal('editar-skill');" class="btn btn-secondary btn-lg btn-block">CANCELAR</button>
+        </div>
+    </jw-modal>
+
 </div>
