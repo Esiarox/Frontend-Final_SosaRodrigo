@@ -18,3 +18,7 @@ div{
 .img-proy{
     box-shadow: 3px 3px 1px #000000;
 }
+
+h1, h2{
+    display: inline;
+}

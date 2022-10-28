@@ -1,12 +1,70 @@
 <div class="row">
-    <h1>Proyectos</h1>
-    <div class="proyectos">
+    <div>
+        <h1>Proyectos</h1><button type="button" title="Agregar nuevo" class="btn btn-success"
+            (click)="openCreateModal('crear-proy')" *ngIf="isLogged">
+            <i class="bi bi-plus-circle"></i>
+        </button>
+    </div>
+    <div class="proyectos" *ngFor="let proy of proyectos">   
         <div class="col-sm-12 col-md-7 col-lg-7 proy">
-            <h2>Proyecto 1</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere labore dolor aut voluptate voluptatum dolorem earum, quod sed, cum optio numquam obcaecati quidem odit, officiis aperiam animi sapiente laboriosam nam.</p>
+            <h2>{{proy.titulo}}</h2>
+            <button *ngIf="isLogged" type="button" title="Editar" class="btn btn-warning"
+                    (click)="openUpdateModal('editar-proy', proy)"><i class=" bi bi-pencil-square"></i></button>
+                <button *ngIf="isLogged" type="button" title="Eliminar" class="btn btn-danger"
+                    (click)="borrar(proy.id)"><i class="bi bi-trash"></i></button>
+            <p> {{proy.descripcion}}</p>
         </div>
         <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 img-proy">
-            <img src="../../../assets/LogoAP.png" alt="" class="img-fluid">
+            <img src="{{proy.imagen}}" alt="" class="img-fluid">
         </div>
     </div>
+
+    <jw-modal id="crear-proy">
+        <div class="row">
+            <h1>Nuevo Proyecto</h1>
+        </div>
+        <div class="row">
+            <h2>Título</h2>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="titulo" required>
+        </div>
+        <div class="row">
+            <h2>Descripción del proyecto</h2>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion"
+                required>
+        </div>
+        <div class="row">
+            <h2>URL de la imagen del proyecto</h2>
+            <input type="text" class="form-control" id="imagen" name="imagen" [(ngModel)]="imagen"
+                required>
+        </div>
+        <div class="row">
+            <button (click)="crear()" class="btn btn-primary btn-lg btn-block">CREAR</button>
+            <button (click)="closeModal('crear-proy');" class="btn btn-secondary btn-lg btn-block">CANCELAR</button>
+        </div>
+    </jw-modal>
+
+    <jw-modal id="editar-proy">
+        <div class="row">
+            <h1>Proyecto</h1>
+        </div>
+        <div class="row">
+            <h2>Título</h2>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="titulo" required>
+        </div>
+        <div class="row">
+            <h2>Descripción del proyecto</h2>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" [(ngModel)]="descripcion"
+                required>
+        </div>
+        <div class="row">
+            <h2>URL de la imagen del proyecto</h2>
+            <input type="text" class="form-control" id="imagen" name="imagen" [(ngModel)]="imagen"
+                required>
+        </div>
+        <div class="row">
+            <button (click)="actualizar()" class="btn btn-primary btn-lg btn-block">ACTUALIZAR</button>
+            <button (click)="closeModal('editar-proy');" class="btn btn-secondary btn-lg btn-block">CANCELAR</button>
+        </div>
+    </jw-modal>
+
 </div>
