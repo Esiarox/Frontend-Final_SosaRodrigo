@@ -1,3 +1,17 @@
 <div class="row">
-    <img src="../../../assets/21770-ai.png" id="banner">
+    <button *ngIf="isLogged" type="button" title="Editar Banner" class="btn btn-warning abm"
+    (click)="openUpdateModal('editar-banner')"><i class=" bi bi-pencil-square"></i></button>
+
+    <img src="{{persona.imagenBanner}}" id="banner">
 </div>
+
+    <jw-modal id="editar-banner">
+    <div class="row">
+        <h2>URL Banner</h2>
+        <input type="text" class="form-control" id="imagenBanner" name="imagenBanner" [(ngModel)]="persona.imagenBanner" required>
+    </div>
+    <div class="row">
+        <button (click)="actualizar();" class="btn btn-primary btn-lg btn-block">OK</button>
+        <button (click)="closeModal('editar-banner');" class="btn btn-secondary btn-lg btn-block">CANCELAR</button>
+    </div>
+</jw-modal>

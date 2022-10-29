@@ -1,16 +1,41 @@
 <div class="container"></div>
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 foto">
-        <img src="../../../assets/R.jpg" alt="" class="img-fluid" id="foto">
+        <img src="{{persona.imagen}}" alt="" class="img-fluid" id="foto">
     </div>
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-        <p id="nombre">{{persona.nombre}} {{persona.apellido}}</p>
-        <p>Full Stack Developer Jr</p>
+        <p id="name">{{persona.nombre}} {{persona.apellido}}</p>
+        <p>{{persona.titulo}}</p>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
         <span>
             <h1>Acerca de mí</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium sunt amet explicabo, laboriosam autem eum soluta deleniti, quo ratione, omnis vel at culpa dolorem suscipit architecto voluptatem vero aperiam provident!</p>
+            <p>{{persona.acercaDe}}</p>
         </span>
     </div>
+    <button *ngIf="isLogged" type="button" title="Editar información personal" class="btn btn-warning"
+    (click)="openUpdateModal('editar-persona')"><i class=" bi bi-pencil-square"></i></button>
+
+    <jw-modal id="editar-persona">
+        <div class="row">
+            <h2>Nombre</h2>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+            <h2>Apellido</h2>
+            <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
+            <h2>URL Foto de perfil</h2>
+            <input type="text" class="form-control" id="imagen" name="imagen" [(ngModel)]="persona.imagen" required>
+        </div>
+        <div class="row">
+            <h2>Título</h2>
+            <input type="text" class="form-control" id="titulo" name="titulo" [(ngModel)]="persona.titulo" required>
+        </div>
+        <div class="row">
+            <h2>Acerca de</h2>
+            <input type="text" class="form-control" id="acercaDe" name="acercaDe" [(ngModel)]="persona.acercaDe" required>
+        </div>
+        <div class="row">
+            <button (click)="actualizar();" class="btn btn-primary btn-lg btn-block">OK</button>
+            <button (click)="closeModal('editar-persona');" class="btn btn-secondary btn-lg btn-block">CANCELAR</button>
+        </div>
+    </jw-modal>
 </div>
