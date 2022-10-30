@@ -37,7 +37,7 @@ export class EducacionComponent implements OnInit {
     const educ = new Educacion(this.anio, this.titulo, this.institucion);
     this.educacionService.crear(educ).subscribe(
       data => {
-        //alert("Nueva Educación añadida");
+        alert("Nueva Educación añadida");
         this.cargarEducacion();
       }, err => {
         alert("Error al agregar la nueva Educación");
@@ -64,12 +64,10 @@ export class EducacionComponent implements OnInit {
     this.educacion.institucion = this.institucion;
     this.educacionService.editar(this.educacion).subscribe(
       data => {
-        this.cargarEducacion();
       }, err => {
         alert("Ha ocurrido un error al modificar la educación");
       }
     )
-    this.cargarEducacion();
     this.closeModal('editar-edu');
   }
 

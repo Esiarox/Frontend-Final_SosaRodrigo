@@ -35,7 +35,7 @@ export class SkillComponent implements OnInit {
     const skill = new Skill(this.titulo, this.nivel);
     this.skillService.crear(skill).subscribe(
       data => {
-        //alert("Nueva Skill añadida");
+        alert("Nueva Skill añadida");
         this.cargarSkills();
       }, err => {
         alert("Error al agregar la nueva skill");
@@ -61,12 +61,10 @@ export class SkillComponent implements OnInit {
     this.skill.nivel = this.nivel;
     this.skillService.editar(this.skill).subscribe(
       data => {
-        this.cargarSkills();
       }, err => {
         alert("Ha ocurrido un error al modificar la skill");
       }
     )
-    this.cargarSkills();
     this.closeModal('editar-skill');
   }
 

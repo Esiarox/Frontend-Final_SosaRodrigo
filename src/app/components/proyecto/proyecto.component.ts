@@ -36,7 +36,7 @@ export class ProyectoComponent implements OnInit {
     const proy = new Proyecto(this.titulo, this.descripcion, this.imagen);
     this.proyectoService.crear(proy).subscribe(
       data => {
-        //alert("Nuevo Proyecto añadido");
+        alert("Nuevo Proyecto añadido");
         this.cargarProyecto();
       }, err => {
         alert("Error al agregar el nuevo Proyecto");
@@ -63,12 +63,10 @@ export class ProyectoComponent implements OnInit {
     this.proyecto.imagen = this.imagen;
     this.proyectoService.editar(this.proyecto).subscribe(
       data => {
-        this.cargarProyecto();
       }, err => {
         alert("Ha ocurrido un error al modificar el proyecto");
       }
     )
-    this.cargarProyecto();
     this.closeModal('editar-proy');
   }
 
