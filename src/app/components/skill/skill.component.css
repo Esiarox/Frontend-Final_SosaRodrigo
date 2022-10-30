@@ -7,6 +7,11 @@ div{
     color: white;
 }
 
-h1, h3{
+h1{
     display: inline;
+}
+
+.abm {
+    margin-left: 10px;
+    margin-bottom: 25px;
 }

@@ -8,7 +8,7 @@ div{
     padding: 20px;
 }
 
-#nombre{
+#name{
     font-weight: bold;
     margin-top: 30px;
 }
@@ -51,4 +51,8 @@ div{
         left: 33%;
         top: 500px;
     }
+}
+
+h1 {
+    display: inline;
 }

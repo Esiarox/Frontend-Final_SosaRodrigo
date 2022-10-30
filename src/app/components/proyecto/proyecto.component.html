@@ -1,6 +1,6 @@
 <div class="row">
     <div>
-        <h1>Proyectos</h1><button type="button" title="Agregar nuevo" class="btn btn-success"
+        <h1>Proyectos</h1><button type="button" title="Agregar nuevo" class="btn btn-success abm"
             (click)="openCreateModal('crear-proy')" *ngIf="isLogged">
             <i class="bi bi-plus-circle"></i>
         </button>
@@ -8,9 +8,9 @@
     <div class="proyectos" *ngFor="let proy of proyectos">   
         <div class="col-sm-12 col-md-7 col-lg-7 proy">
             <h2>{{proy.titulo}}</h2>
-            <button *ngIf="isLogged" type="button" title="Editar" class="btn btn-warning"
+            <button *ngIf="isLogged" type="button" title="Editar" class="btn btn-warning abm"
                     (click)="openUpdateModal('editar-proy', proy)"><i class=" bi bi-pencil-square"></i></button>
-                <button *ngIf="isLogged" type="button" title="Eliminar" class="btn btn-danger"
+                <button *ngIf="isLogged" type="button" title="Eliminar" class="btn btn-danger abm"
                     (click)="borrar(proy.id)"><i class="bi bi-trash"></i></button>
             <p> {{proy.descripcion}}</p>
         </div>

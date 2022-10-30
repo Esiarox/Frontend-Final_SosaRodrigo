@@ -1,6 +1,6 @@
 <div class="row">
     <div>
-        <h1>Hard & Soft Skills</h1><button type="button" title="Agregar nueva" class="btn btn-success"
+        <h1>Hard & Soft Skills</h1><button type="button" title="Agregar nueva" class="btn btn-success abm"
             (click)="openCreateModal('crear-skill')" *ngIf="isLogged">
             <i class="bi bi-plus-circle"></i>
         </button>
@@ -12,9 +12,9 @@
             [unitsFontWeight]="'900'" [titleFontSize]="'35'" [titleFontWeight]="'600'" [animation]="true"
             [animationDuration]="300" [showSubtitle]="false"></circle-progress>
         <h3>{{skill.titulo}}</h3>
-        <button *ngIf="isLogged" type="button" title="Editar" class="btn btn-warning"
+        <button *ngIf="isLogged" type="button" title="Editar" class="btn btn-warning abm"
             (click)="openUpdateModal('editar-skill', skill)"><i class=" bi bi-pencil-square"></i></button>
-        <button *ngIf="isLogged" type="button" title="Eliminar" class="btn btn-danger" (click)="borrar(skill.id)"><i
+        <button *ngIf="isLogged" type="button" title="Eliminar" class="btn btn-danger abm" (click)="borrar(skill.id)"><i
                 class="bi bi-trash"></i></button>
     </div>
 
