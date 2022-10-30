@@ -63,7 +63,7 @@ export class ProyectoComponent implements OnInit {
     this.proyecto.imagen = this.imagen;
     this.proyectoService.editar(this.proyecto).subscribe(
       data => {
-        this.cargarProyecto();
+        //this.cargarProyecto();
       }, err => {
         alert("Ha ocurrido un error al modificar el proyecto");
       }

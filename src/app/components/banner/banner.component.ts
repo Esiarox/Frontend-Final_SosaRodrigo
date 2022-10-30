@@ -32,7 +32,7 @@ export class BannerComponent implements OnInit {
   actualizar(): void {
     this.personaService.editar(this.persona).subscribe(
       data => {
-        this.cargarPersona();
+        //this.cargarPersona();
       }, err => {
         alert("Ha ocurrido un error al modificar los datos");
       }

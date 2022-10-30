@@ -64,7 +64,7 @@ export class EducacionComponent implements OnInit {
     this.educacion.institucion = this.institucion;
     this.educacionService.editar(this.educacion).subscribe(
       data => {
-        this.cargarEducacion();
+        //this.cargarEducacion();
       }, err => {
         alert("Ha ocurrido un error al modificar la educación");
       }

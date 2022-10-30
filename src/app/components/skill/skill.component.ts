@@ -61,7 +61,7 @@ export class SkillComponent implements OnInit {
     this.skill.nivel = this.nivel;
     this.skillService.editar(this.skill).subscribe(
       data => {
-        this.cargarSkills();
+        //this.cargarSkills();
       }, err => {
         alert("Ha ocurrido un error al modificar la skill");
       }
