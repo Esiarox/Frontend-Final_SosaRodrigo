@@ -64,7 +64,7 @@ export class ExperienciaComponent implements OnInit {
     this.experiencia.duracion = this.duracion;
     this.experienciaService.editar(this.experiencia).subscribe(
       data => {
-        //this.cargarExperiencia();
+        this.cargarExperiencia();
       }, err => {
         alert("Ha ocurrido un error al modificar la experiencia laboral");
       }
