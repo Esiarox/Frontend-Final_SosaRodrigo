@@ -7,7 +7,8 @@ import { Skill } from '../modelos/skill';
   providedIn: 'root'
 })
 export class SkillService {
-  skillURL = 'http://localhost:8080/skill/';
+  //skillURL = 'http://localhost:8080/skill/';
+  skillURL = 'https://ap-backend-rs.herokuapp.com/skill/';
 
   constructor(private httpClient: HttpClient) { }
 
