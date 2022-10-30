@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Login } from 'src/app/modelos/login.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       this.isLogged=false;
       this.mensaje = err.error.mensaje;
       console.log(this.mensaje);
+      alert("Error al iniciar sesión. Verifique sus datos");
     })
   }
 }
